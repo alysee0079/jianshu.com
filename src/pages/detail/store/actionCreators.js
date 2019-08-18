@@ -11,7 +11,7 @@ const changeDetail = (title, content) => {
 
 export const getDetail = (id) => {
   return (dispatch) => {
-    axios.get('/api/detail.json?id=' + id).then((res) => {
+    axios.get(`${process.env.PUBLIC_URL}/api/detail.json?id=` + id).then((res) => {
       dispatch(changeDetail(res.data.data.title, res.data.data.content))
     })
   }

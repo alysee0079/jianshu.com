@@ -10,7 +10,7 @@ const changeHomeData = (result) => ({
 })
 export const getHomeInfo = () => {
   return (dispatch) => {
-    axios.get('/api/home.json').then((res) => {
+    axios.get(`${process.env.PUBLIC_URL}/api/home.json`).then((res) => {
       dispatch(changeHomeData(res))
     }).catch((error) => {
 
@@ -25,7 +25,7 @@ const addHomeList = (result, page) => ({
 })
 export const getMoreList = (page) => {
   return (dispatch) => {
-    axios.get(`/api/homeList.json?page=${page}`).then((res) => {
+    axios.get(`${process.env.PUBLIC_URL}/api/homeList.json?page=${page}`).then((res) => {
       dispatch(addHomeList(res, page + 1))
     }).catch((error) => {
 
